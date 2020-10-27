@@ -19,6 +19,8 @@
     "import/prefer-default-export": "off",
     "import/extensions": ["error"],
     "prettier/prettier": "error",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "no-unused-vars": "off",
+    "no-console": "off"
   }
 }
