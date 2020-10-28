@@ -1,22 +1,34 @@
 import React from 'react';
 import { Item, Image, Description } from './styles';
 
-const PokemonCard = ({ pokemon = [], index = 0 }) => {
+const PokemonCard = ({ pokemons = [] }) => {
+  if (!pokemons || pokemons.length === 0) {
+    return <p>No pokemons today, sorry</p>;
+  }
+
   return (
-    <Item className="item">
-      <Image>
-        <img
-          src={`https://pokeres.bastionbot.org/images/pokemon/${index}.png`}
-          alt={pokemon.name}
-        />
+    <>
+      {pokemons.map((poke, index) => {
+        return (
+          <Item key={poke.url} to={`/pokemon/${index + 1}`} className="item">
+            <Image>
+              <img
+                src={`https://pokeres.bastionbot.org/images/pokemon/${
+                  index + 1
+                }.png`}
+                alt={poke.name}
+              />
 
-        <button type="button">Ver pokemon</button>
-      </Image>
+              <button type="button">Ver pokemon</button>
+            </Image>
 
-      <Description>
-        <h3>{pokemon.name}</h3>
-      </Description>
-    </Item>
+            <Description>
+              <h3>{poke.name}</h3>
+            </Description>
+          </Item>
+        );
+      })}
+    </>
   );
 };
 
