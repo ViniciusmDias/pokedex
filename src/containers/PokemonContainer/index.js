@@ -1,19 +1,10 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import actions from '../../store/actions/Pokemons';
-import Pokemon from '../../components/Pokemon';
+import PokemonCard from '../../components/PokemonCard';
 import { List, Options } from './styles';
 
-const ListPokemons = () => {
-  const dispatch = useDispatch();
-  const pokemons = useSelector((state) => state.pokemonsReducer.data);
-
-  useEffect(() => {
-    dispatch(actions.getPokemons());
-  }, [dispatch]);
-
+const PokemonContainer = (pokemons = []) => {
   return (
     <List>
       <Options>
@@ -21,13 +12,13 @@ const ListPokemons = () => {
         <span>({pokemons.length} items)</span>
       </Options>
       <ul>
-        {pokemons.map((pokemon) => (
-          <Link key={pokemon.index} to={`/pokemon/${product.index}`}>
-            <Pokemon product={product} />
+        {pokemons.poke.map((pokemon, index) => (
+          <Link key={pokemon.url} to={`/pokemon/${index}`}>
+            <PokemonCard pokemon={pokemon} index={index} />
           </Link>
         ))}
       </ul>
     </List>
   );
 };
-export default ListPokemons;
+export default PokemonContainer;

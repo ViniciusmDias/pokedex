@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import api from '../../services/api';
 
-import PokemonList from '../../containers/PokemonList';
+import PokemonContainer from '../../containers/PokemonContainer';
 
 const Home = () => {
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(() => {
+    api.get('').then((response) => {
+      setPokemons(response.data.results);
+    });
+  }, []);
+
   return (
     <>
-      <PokemonList />
+      <PokemonContainer poke={pokemons} />
     </>
   );
 };

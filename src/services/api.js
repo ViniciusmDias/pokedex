@@ -1,7 +1,9 @@
-const URL = 'https://pokeapi.co/api/v2/pokemon?limit=20';
+// getAll: () => fetch(`${URL}?limit=20`).then((response) => response.json()),
+// getSingle: () => fetch(`${URL}/1`).then((response) => response.json()),
+import axios from 'axios';
 
-const api = {
-  getAll: () => fetch(URL).then((response) => response.json()),
-};
+const api = axios.create({
+  baseURL: 'https://pokeapi.co/api/v2/pokemon',
+});
 
 export default api;

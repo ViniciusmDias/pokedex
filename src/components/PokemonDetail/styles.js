@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Product = styled.div`
+export const Pokemon = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,9 +19,9 @@ export const Product = styled.div`
       width: 100%;
     }
   }
-`
+`;
 
-export const ProductGroup = styled.div`
+export const PokemonGroup = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px 40px;
@@ -34,7 +34,7 @@ export const ProductGroup = styled.div`
     border-radius: 2px;
     margin-top: 20px;
     font-weight: 500;
-    color: #FFF;
+    color: #fff;
     background: var(--primary);
     transition: opacity 0.2s;
 
@@ -57,16 +57,16 @@ export const ProductGroup = styled.div`
     margin: 5px 0px;
     align-items: center;
   }
-`
+`;
 
-export const ProductInfo = styled.div`
+export const PokemonInfo = styled.div`
   text-align: center;
 
   h3 {
     font-weight: 500;
     font-size: 18px;
   }
-`
+`;
 
 export const InfoPrice = styled.div`
   label {
@@ -83,9 +83,9 @@ export const InfoPrice = styled.div`
     font-size: 14px;
     color: var(--primary);
   }
-`
+`;
 
-export const ProductSize = styled.div`
+export const PokemonSize = styled.div`
   margin: 12px 0;
 
   p {
@@ -99,11 +99,11 @@ export const ProductSize = styled.div`
     height: 30px;
     margin-right: 5px;
     border-radius: 100%;
-    border: 1px solid #FFF;
-    color: #FFF;
+    border: 1px solid #fff;
+    color: #fff;
     box-shadow: 2px 2px 2px #1d1d1d;
   }
   .size__btn--selected {
     background: var(--primary);
   }
-`
+`;

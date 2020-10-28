@@ -1,29 +1,20 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import actionsPokemons from '../../store/actions/Pokemons';
+import React, { useEffect, useState } from 'react';
 
 import PokemonDetail from '../../components/PokemonDetail';
 
-const Pokemon = ({ match = '01' }) => {
-  const dispatch = useDispatch();
-  const pokemons = useSelector((state) => state.pokemonsReducer.data);
-  const index = parseInt(match.params.id);
+const PokemonDescription = ({ match = '01' }) => {
+  const [pokemon, setPokemon] = useState();
 
-  useEffect(() => {
-    dispatch(actionsPokemons.getPokemons());
-  }, [dispatch]);
+  const index = parseInt(match.params.id);
+  console.log(index);
 
   return (
     <>
-      {pokemons.map(
-        (pokemon) =>
-          pokemon.index === index && (
-            <PokemonDetail key={pokemon.index} pokemon={pokemon} />
-          ),
-      )}
+      <h1>Pokemon Nome</h1>
+      <h2>Pokemon Type</h2>
+      <p>Pokemon Desc</p>
     </>
   );
 };
 
-export default Pokemon;
+export default PokemonDescription;

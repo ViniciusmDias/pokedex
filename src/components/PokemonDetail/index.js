@@ -1,40 +1,37 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { BsArrowLeft } from 'react-icons';
+import { BsArrowLeft } from 'react-icons/bs';
 
-import { Product, ProductGroup, ProductInfo, InfoPrice } from './styles';
+import { Pokemon, PokemonGroup, PokemonInfo, InfoPrice } from './styles';
 
-const SingleProduct = ({ product = {} }) => {
-  const dispatch = useDispatch();
-
+const PokemonDetail = ({ pokemon = {} }) => {
   return (
-    <Product className="product">
+    <Pokemon className="pokemon">
       <img
         src={`https://pokeres.bastionbot.org/images/pokemon/${
-          product.index + 1
+          pokemon.index + 1
         }.png`}
         alt="pokemon"
       />
 
-      <ProductGroup>
-        <ProductInfo>
-          <h3>{product.name}</h3>
+      <PokemonGroup>
+        <PokemonInfo>
+          <h3>{pokemon.name}</h3>
           <InfoPrice>
-            {product.on_sale && <span>R$ {product.regular_price}</span>}
-            <strong>R${product.actual_price}</strong>
+            {pokemon.on_sale && <span>R$ {pokemon.regular_price}</span>}
+            <strong>R${pokemon.actual_price}</strong>
             <br />
-            <span className="installments">Em até {product.installments}x</span>
+            <span className="installments">Em até {pokemon.installments}x</span>
           </InfoPrice>
-        </ProductInfo>
+        </PokemonInfo>
 
         <Link to="/" className="link-back">
           <BsArrowLeft size={24} />
           Voltar para a home
         </Link>
-      </ProductGroup>
-    </Product>
+      </PokemonGroup>
+    </Pokemon>
   );
 };
 
-export default SingleProduct;
+export default PokemonDetail;
