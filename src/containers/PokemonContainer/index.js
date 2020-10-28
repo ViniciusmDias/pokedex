@@ -13,8 +13,8 @@ const PokemonContainer = (pokemons = []) => {
       </Options>
       <ul>
         {pokemons.poke.map((pokemon, index) => (
-          <Link key={pokemon.url} to={`/pokemon/${index}`}>
-            <PokemonCard pokemon={pokemon} index={index} />
+          <Link key={pokemon.url} to={`/pokemon/${index + 1}`}>
+            <PokemonCard pokemon={pokemon} index={index + 1} />
           </Link>
         ))}
       </ul>
