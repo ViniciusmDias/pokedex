@@ -52,22 +52,24 @@ const PokemonDetail = ({ pokemon = {} }) => {
           />
         </PokemonImage>
         <PokemonStats>
-          <article>
+          <header>
             {pokemonType.map((type) => (
               <img
-                src={`https://github.com/ViniciusmDias/pokedex-elysios/blob/pokemon-description-page/src/assets/types/${type.name}.png`}
+                src={`${process.env.PUBLIC_URL}/assets/types/${type.name}.png`}
                 alt="type"
               />
             ))}
-          </article>
-          <article>
+          </header>
+          <h3>Estatísticas de base:</h3>
+          <ul>
             {pokemonStats.map((stat) => (
-              <div>
-                <p>{stat.name}</p>
-                <p>{stat.value}</p>
-              </div>
+              <li>
+                <p>
+                  {stat.name}: {stat.value}
+                </p>
+              </li>
             ))}
-          </article>
+          </ul>
         </PokemonStats>
       </PokemonDescription>
 
