@@ -16,12 +16,17 @@ export default createGlobalStyle`
     font-size: 14px;
   }
   a, body, button, h1, h2, h3, h4, h5, input, select {
-    font-family: 'Open Sans',sans-serif;
-    letter-spacing: 2px;
-    color: var(--gray);
+    font-family: 'Nunito',sans-serif;
+    color: #ffffff;
   }
   h1 {
-    font-size: 2.2rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  h2 {
+    margin-bottom: .5rem;
+    line-height: 1.2;
   }
   #root {
     --secondary: #fcce00;

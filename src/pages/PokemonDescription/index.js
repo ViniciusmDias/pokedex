@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import PokemonDetail from '../../components/PokemonDetail';
 import WithPokemonLoading from '../../components/WithPokemonLoading';
 
+import { Container } from './styles';
+
 const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
 
 const PokemonDescription = ({ match = '01' }) => {
@@ -25,9 +27,9 @@ const PokemonDescription = ({ match = '01' }) => {
   }, [setAppState, index]);
 
   return (
-    <>
+    <Container>
       <PokemonsLoading isLoading={appState.loading} pokemon={appState.poke} />
-    </>
+    </Container>
   );
 };
 

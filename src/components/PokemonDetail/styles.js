@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 export const Pokemon = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3%;
+  flex-direction: column;
+  margin: 8vh 3vw;
 
   img {
     min-width: 40%;
@@ -21,7 +19,25 @@ export const Pokemon = styled.div`
   }
 `;
 
-export const PokemonGroup = styled.div`
+export const PokemonHeader = styled.header`
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    text-transform: capitalize;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  }
+`;
+
+export const PokemonDescription = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px 40px;
@@ -60,6 +76,8 @@ export const PokemonGroup = styled.div`
 `;
 
 export const PokemonInfo = styled.div`
+  display: flex;
+  flex-direction: column;
   text-align: center;
 
   h3 {
