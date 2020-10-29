@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Item = styled.li`
+export const Item = styled(Link)`
   max-width: 320px;
   margin-bottom: 20px;
   cursor: pointer;

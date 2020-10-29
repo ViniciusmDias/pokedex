@@ -22,6 +22,8 @@
     "arrow-body-style": "off",
     "no-unused-vars": "off",
     "no-console": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "radix": "off",
+    "implicit-arrow-linebreak": "off"
   }
 }

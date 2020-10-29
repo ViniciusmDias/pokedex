@@ -1,11 +1,11 @@
 import React from 'react';
 
-import PokemonList from '../../containers/PokemonList';
+import PokemonContainer from '../../containers/PokemonContainer';
 
 const Home = () => {
   return (
     <>
-      <PokemonList />
+      <PokemonContainer />
     </>
   );
 };
