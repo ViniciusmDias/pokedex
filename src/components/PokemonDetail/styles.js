@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Pokemon = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   margin: 8vh 3vw;
@@ -17,30 +18,6 @@ export const Pokemon = styled.div`
       width: 100%;
     }
   }
-`;
-
-export const PokemonHeader = styled.header`
-  display: flex;
-  flex-direction: column;
-
-  h1 {
-    color: #ffffff;
-    font-size: 35px;
-    font-weight: 800;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
-    text-transform: capitalize;
-  }
-  h2 {
-    font-size: 20px;
-    font-weight: 800;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
-  }
-`;
-
-export const PokemonDescription = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10px 40px;
 
   .btn-submit {
     min-width: 340px;
@@ -75,53 +52,54 @@ export const PokemonDescription = styled.div`
   }
 `;
 
+export const PokemonHeader = styled.header`
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    text-transform: capitalize;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  }
+`;
+
+export const PokemonDescription = styled.div`
+  display: flex;
+  flex: 1;
+  margin: 0 4vw;
+  align-items: center;
+`;
+
 export const PokemonInfo = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
 
-  h3 {
-    font-weight: 500;
-    font-size: 18px;
+  span {
+    font-size: 17px;
+    font-weight: 600;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   }
 `;
 
-export const InfoPrice = styled.div`
-  label {
-    font-weight: 400;
-    font-size: 14px;
-    text-decoration: line-through;
-    color: #c8c8c8;
-  }
-  strong {
-    margin-left: 5px;
-    font-weight: 400;
-  }
-  label.installments {
-    font-size: 14px;
-    color: var(--primary);
-  }
+export const PokemonImage = styled.div`
+  width: 70%;
+  display: flex;
+  justify-content: center;
 `;
 
-export const PokemonSize = styled.div`
-  margin: 12px 0;
+export const PokemonStats = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 
-  p {
-    font-size: 14px;
-    color: var(--primary);
-    margin: 10px 0;
-  }
-  .size__btn {
-    background: #131313;
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    border-radius: 100%;
-    border: 1px solid #fff;
-    color: #fff;
-    box-shadow: 2px 2px 2px #1d1d1d;
-  }
-  .size__btn--selected {
-    background: var(--primary);
+  article {
+    display: flex;
   }
 `;

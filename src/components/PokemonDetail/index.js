@@ -7,6 +7,8 @@ import {
   PokemonHeader,
   PokemonDescription,
   PokemonInfo,
+  PokemonImage,
+  PokemonStats,
 } from './styles';
 
 const PokemonDetail = ({ pokemon = {} }) => {
@@ -27,8 +29,10 @@ const PokemonDetail = ({ pokemon = {} }) => {
     };
   });
 
-  console.log(pokemonStats);
-  console.log(pokemonType);
+  const convertDecimeterToMeter = (value) => value / 10;
+  const convertHectogramToKg = (value) => value / 10;
+
+  console.log(pokemon);
 
   return (
     <Pokemon className="pokemon">
@@ -38,30 +42,39 @@ const PokemonDetail = ({ pokemon = {} }) => {
       </PokemonHeader>
       <PokemonDescription>
         <PokemonInfo>
-          <p>{pokemon.weight}</p>
-          <p>{pokemon.height}</p>
-          <p>POKEMON EVOLUÇÕES</p>
+          <span>Altura: {convertDecimeterToMeter(pokemon.height)}m</span>
+          <span>Peso: {convertHectogramToKg(pokemon.weight)}</span>
         </PokemonInfo>
-
-        <Link to="/" className="link-back">
-          <BsArrowLeft size={24} />
-          Voltar para a home
-        </Link>
+        <PokemonImage>
+          <img
+            src={pokemon.sprites.other.dream_world.front_default}
+            alt="pokemon"
+          />
+        </PokemonImage>
+        <PokemonStats>
+          <article>
+            {pokemonType.map((type) => (
+              <img
+                src={`https://github.com/ViniciusmDias/pokedex-elysios/blob/pokemon-description-page/src/assets/types/${type.name}.png`}
+                alt="type"
+              />
+            ))}
+          </article>
+          <article>
+            {pokemonStats.map((stat) => (
+              <div>
+                <p>{stat.name}</p>
+                <p>{stat.value}</p>
+              </div>
+            ))}
+          </article>
+        </PokemonStats>
       </PokemonDescription>
-      <img
-        src={pokemon.sprites.other.dream_world.front_default}
-        alt="pokemon"
-      />
-      {pokemonType.map((type) => (
-        <p>{type.name}</p>
-      ))}
 
-      {pokemonStats.map((stat) => (
-        <div>
-          <p>{stat.name}</p>
-          <p>{stat.value}</p>
-        </div>
-      ))}
+      <Link to="/" className="link-back">
+        <BsArrowLeft size={24} />
+        Voltar para a home
+      </Link>
     </Pokemon>
   );
 };
