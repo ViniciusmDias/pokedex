@@ -1,33 +1,29 @@
-import React from 'react';
-import { Item, Image, Description } from './styles';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Item } from './styles';
 
-const PokemonCard = ({ pokemons = [] }) => {
-  if (!pokemons || pokemons.length === 0) {
-    return <p>No pokemons today, sorry</p>;
+const PokemonCard = ({ pokemonCard = [] }) => {
+  const [pokemonUnique, setPokemonUnique] = useState([]);
+
+  useEffect(() => {
+    fetch(`${pokemonCard.url}`)
+      .then((res) => res.json())
+      .then((results) => {
+        setPokemonUnique(results);
+      });
+  }, [pokemonCard]);
+
+  if (!pokemonCard || pokemonCard.length === 0) {
+    return <p>No pokemon today, sorry</p>;
   }
-
   return (
     <>
-      {pokemons.map((poke, index) => {
-        return (
-          <Item key={poke.url} to={`/pokemon/${index + 1}`} className="item">
-            <Image>
-              <img
-                src={`https://pokeres.bastionbot.org/images/pokemon/${
-                  index + 1
-                }.png`}
-                alt={poke.name}
-              />
-
-              <button type="button">Ver pokemon</button>
-            </Image>
-
-            <Description>
-              <h3>{poke.name}</h3>
-            </Description>
-          </Item>
-        );
-      })}
+      <Item className="item">
+        <Link to={`/pokemon/${pokemonUnique.id}`}>
+          <h3>{pokemonUnique.name}</h3>
+          <h3>#{pokemonUnique.id}</h3>
+        </Link>
+      </Item>
     </>
   );
 };

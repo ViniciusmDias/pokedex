@@ -28,7 +28,10 @@ const PokemonDescription = ({ match = '01' }) => {
 
   return (
     <Container>
-      <PokemonsLoading isLoading={appState.loading} pokemon={appState.poke} />
+      <PokemonsLoading
+        isLoading={appState.loading}
+        pokemonDetail={appState.poke}
+      />
     </Container>
   );
 };

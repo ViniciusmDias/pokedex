@@ -1,61 +1,32 @@
 import styled from 'styled-components';
 
-export const List = styled.section`
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 2vh 5vw 0;
-    list-style: none;
-
-    @media (min-width: 765px) {
-      margin: 2vh 10vw 0;
-    }
-
-    a {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      text-decoration: none;
-      margin: 4vh 0;
-      width: 46%;
-      flex-direction: column;
-
-      @media (min-width: 765px) {
-        width: 22%;
-        margin: 4vh 4vw;
-      }
-    }
-  }
-`;
-export const Options = styled.div`
-  margin: 2vh 5vw;
+export const Container = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  @media (min-width: 765px) {
-    margin: 2vh 10vw 0;
-  }
+  margin: 0 5vw;
+  min-height: 100vh;
+
   h1 {
-    font-weight: 900;
-    text-transform: lowercase;
+    font-size: 50px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    text-transform: capitalize;
+    text-align: center;
+    margin: 2vh 0;
   }
-  span {
-    font-weight: 400;
-    color: #e6e6e6;
-  }
-  div {
-    margin: 4vh 4vw 0;
+
+  header {
     display: flex;
-    width: 100%;
-    justify-content: space-around;
-    button {
-      background-color: transparent;
-      border: none;
-      font-size: 1.2rem;
-    }
-    .active {
-      color: var(--primary);
-    }
+    margin-bottom: 2vh;
+    align-self: center;
+  }
+
+  ul {
+    width: 300px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
   }
 `;

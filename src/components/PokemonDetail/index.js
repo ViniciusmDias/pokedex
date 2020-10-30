@@ -11,19 +11,19 @@ import {
   PokemonStats,
 } from './styles';
 
-const PokemonDetail = ({ pokemon = {} }) => {
-  if (!pokemon || pokemon.length === 0) {
+const PokemonDetail = ({ pokemonDetail = {} }) => {
+  if (!pokemonDetail || pokemonDetail.length === 0) {
     return <p>No pokemon today, sorry</p>;
   }
 
-  const pokemonStats = pokemon.stats.map((key) => {
+  const pokemonStats = pokemonDetail.stats.map((key) => {
     return {
       value: key.base_stat,
       name: key.stat.name,
     };
   });
 
-  const pokemonType = pokemon.types.map((key) => {
+  const pokemonType = pokemonDetail.types.map((key) => {
     return {
       name: key.type.name,
     };
@@ -32,22 +32,20 @@ const PokemonDetail = ({ pokemon = {} }) => {
   const convertDecimeterToMeter = (value) => value / 10;
   const convertHectogramToKg = (value) => value / 10;
 
-  console.log(pokemon);
-
   return (
     <Pokemon className="pokemon">
       <PokemonHeader>
-        <h2>#00{pokemon.order}</h2>
-        <h1>{pokemon.name}</h1>
+        <h2>#{pokemonDetail.id}</h2>
+        <h1>{pokemonDetail.name}</h1>
       </PokemonHeader>
       <PokemonDescription>
         <PokemonInfo>
-          <span>Altura: {convertDecimeterToMeter(pokemon.height)}m</span>
-          <span>Peso: {convertHectogramToKg(pokemon.weight)}</span>
+          <span>Altura: {convertDecimeterToMeter(pokemonDetail.height)}m</span>
+          <span>Peso: {convertHectogramToKg(pokemonDetail.weight)}kg</span>
         </PokemonInfo>
         <PokemonImage>
           <img
-            src={pokemon.sprites.other.dream_world.front_default}
+            src={pokemonDetail.sprites.other.dream_world.front_default}
             alt="pokemon"
           />
         </PokemonImage>
@@ -55,6 +53,7 @@ const PokemonDetail = ({ pokemon = {} }) => {
           <header>
             {pokemonType.map((type) => (
               <img
+                key={type}
                 src={`${process.env.PUBLIC_URL}/assets/types/${type.name}.png`}
                 alt="type"
               />
@@ -63,7 +62,7 @@ const PokemonDetail = ({ pokemon = {} }) => {
           <h3>Estatísticas de base:</h3>
           <ul>
             {pokemonStats.map((stat) => (
-              <li>
+              <li key={stat}>
                 <p>
                   {stat.name}: {stat.value}
                 </p>
