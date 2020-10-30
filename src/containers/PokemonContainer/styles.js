@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 5vw;
   min-height: 100vh;
 
@@ -17,6 +19,7 @@ export const Container = styled.section`
 
   header {
     display: flex;
+    flex-direction: column;
     margin-bottom: 2vh;
     align-self: center;
   }
@@ -28,5 +31,10 @@ export const Container = styled.section`
     flex-direction: column;
     flex-wrap: wrap;
     list-style: none;
+    margin-bottom: 2vh;
+  }
+  button {
+    width: 300px;
+    align-self: center;
   }
 `;

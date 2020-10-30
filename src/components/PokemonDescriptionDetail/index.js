@@ -11,21 +11,21 @@ import {
   PokemonStats,
 } from './styles';
 
-const PokemonDetail = ({ pokemonDetail = {} }) => {
+const PokemonDescriptionDetail = ({ pokemonDetail = {} }) => {
   if (!pokemonDetail || pokemonDetail.length === 0) {
     return <p>No pokemon today, sorry</p>;
   }
 
-  const pokemonStats = pokemonDetail.stats.map((key) => {
+  const pokemonStats = pokemonDetail.stats.map((stat) => {
     return {
-      value: key.base_stat,
-      name: key.stat.name,
+      value: stat.base_stat,
+      name: stat.stat.name,
     };
   });
 
-  const pokemonType = pokemonDetail.types.map((key) => {
+  const pokemonTypes = pokemonDetail.types.map((type) => {
     return {
-      name: key.type.name,
+      name: type.type.name,
     };
   });
 
@@ -51,20 +51,20 @@ const PokemonDetail = ({ pokemonDetail = {} }) => {
         </PokemonImage>
         <PokemonStats>
           <header>
-            {pokemonType.map((type) => (
+            {pokemonTypes.map((pokemonType) => (
               <img
-                key={type}
-                src={`${process.env.PUBLIC_URL}/assets/types/${type.name}.png`}
+                key={pokemonType.name}
+                src={`${process.env.PUBLIC_URL}/assets/types/${pokemonType.name}.png`}
                 alt="type"
               />
             ))}
           </header>
           <h3>Estatísticas de base:</h3>
           <ul>
-            {pokemonStats.map((stat) => (
-              <li key={stat}>
+            {pokemonStats.map((pokemonStat) => (
+              <li key={pokemonStat.name}>
                 <p>
-                  {stat.name}: {stat.value}
+                  {pokemonStat.name}: {pokemonStat.value}
                 </p>
               </li>
             ))}
@@ -80,4 +80,4 @@ const PokemonDetail = ({ pokemonDetail = {} }) => {
   );
 };
 
-export default PokemonDetail;
+export default PokemonDescriptionDetail;

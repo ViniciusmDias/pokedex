@@ -5,10 +5,11 @@ import withPokemonLoading from '../../components/WithPokemonLoading';
 import PokemonCard from '../../components/PokemonCard';
 import { Container } from './styles';
 
+const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
+
 const PokemonContainer = () => {
   const PokemonsLoading = withPokemonLoading(PokemonCard);
 
-  const [apiUrl, setApiUrl] = useState('https://pokeapi.co/api/v2/pokemon');
   const [pokemons, setPokemons] = useState([]);
   const [appState, setAppState] = useState({
     loading: false,
@@ -17,28 +18,29 @@ const PokemonContainer = () => {
   const [nextPage, setNextPage] = useState('');
 
   useEffect(() => {
-    async function loadPokes() {
-      setAppState({ loading: true });
+    setAppState({ loading: true });
 
-      const res = await api.get(apiUrl);
+    api.get(apiUrl).then((res) => {
       setPokemons(res.data.results);
       setNextPage(res.data.next);
       setAppState({ loading: false });
-    }
+    });
+  }, []);
 
-    loadPokes();
-  }, [apiUrl]);
-
-  function handleClick(e) {
+  async function loadNextPokes(e) {
     e.preventDefault();
-    setApiUrl(nextPage);
+    setAppState({ loading: true });
+    const res = await api.get(nextPage);
+    setPokemons(res.data.results);
+    setNextPage(res.data.next);
+    setAppState({ loading: false });
   }
 
   return (
     <Container>
       <h1>Pokedex Elysios</h1>
       <header>
-        <input type="text" />
+        <input type="text" placeholder="Search" />
         <button type="button">Tipo</button>
       </header>
       <ul>
@@ -53,8 +55,8 @@ const PokemonContainer = () => {
           );
         })}
       </ul>
-      <button type="button" onClick={(e) => handleClick(e)}>
-        Mais Pokemons
+      <button type="button" onClick={(e) => loadNextPokes(e)}>
+        Próxima página
       </button>
     </Container>
   );

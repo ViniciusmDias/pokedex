@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import PokemonDetail from '../../components/PokemonDetail';
+import PokemonDescriptionDetail from '../../components/PokemonDescriptionDetail';
 import WithPokemonLoading from '../../components/WithPokemonLoading';
 
 import { Container } from './styles';
@@ -10,7 +10,7 @@ const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
 const PokemonDescription = ({ match = '01' }) => {
   const index = parseInt(match.params.id);
 
-  const PokemonsLoading = WithPokemonLoading(PokemonDetail);
+  const PokemonsLoading = WithPokemonLoading(PokemonDescriptionDetail);
 
   const [appState, setAppState] = useState({
     loading: false,
