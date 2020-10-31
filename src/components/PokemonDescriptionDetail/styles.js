@@ -4,7 +4,6 @@ export const Pokemon = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 8vh 3vw;
 
   .link-back {
     display: flex;
@@ -41,7 +40,7 @@ export const Pokemon = styled.div`
 export const PokemonHeader = styled.header`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2vh;
+  margin: 4vh 8vw 4vh;
 
   h1 {
     color: #ffffff;
@@ -55,13 +54,17 @@ export const PokemonHeader = styled.header`
     font-weight: 800;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   }
+
+  @media (min-width: 800px) {
+    margin: 8vh 3vw 4vh;
+  }
 `;
 
 export const PokemonDescription = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 0 4vw;
+  margin: 0 8vw;
   align-items: center;
 
   @media (min-width: 800px) {
@@ -85,7 +88,7 @@ export const PokemonImage = styled.div`
   width: 60%;
   display: flex;
   justify-content: center;
-  margin-bottom: 2vh;
+  margin-bottom: 4vh;
 
   img {
     width: 100%;
