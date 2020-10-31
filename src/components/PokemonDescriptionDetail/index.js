@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
+import pokemonTypeColor from '../../helpers/pokemonTypes';
 
 import {
   Pokemon,
@@ -31,6 +32,8 @@ const PokemonDescriptionDetail = ({ pokemonDetail = {} }) => {
 
   const convertDecimeterToMeter = (value) => value / 10;
   const convertHectogramToKg = (value) => value / 10;
+
+  console.log(pokemonTypes.name);
 
   return (
     <Pokemon className="pokemon">

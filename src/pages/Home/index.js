@@ -31,11 +31,27 @@ const Home = () => {
         return pokemonRecord;
       }),
     );
-
     setPokemonsData(pokemon);
   };
 
-  console.log(pokemonsData);
+  const nextPage = async () => {
+    setLoading(true);
+    const data = await getAllPokemon(nextUrl);
+    await loadingPokemon(data.results);
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+    setLoading(false);
+  };
+
+  const previousPage = async () => {
+    if (!prevUrl) return;
+    setLoading(true);
+    const data = await getAllPokemon(prevUrl);
+    await loadingPokemon(data.results);
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+    setLoading(false);
+  };
 
   return (
     <Container>
@@ -55,7 +71,14 @@ const Home = () => {
           ))}
         </ul>
       )}
-      <button type="button">Próxima página</button>
+      <div>
+        <button type="button" onClick={previousPage}>
+          Página anterior
+        </button>
+        <button type="button" onClick={nextPage}>
+          Próxima página
+        </button>
+      </div>
     </Container>
   );
 };
