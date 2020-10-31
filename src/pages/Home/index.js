@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PokemonCard from '../../components/PokemonCard';
 import { Container } from './styles';
-import { getAllPokemon } from '../../services/api';
+import { getAllPokemon, getPokemon, URL } from '../../services/api';
 import Loading from '../../components/Loading';
 
 const Home = () => {
@@ -11,11 +11,10 @@ const Home = () => {
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setPrevUrl] = useState('');
   const [loading, setLoading] = useState(true);
-  const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
 
   useEffect(() => {
     async function loadData() {
-      const response = await getAllPokemon(apiUrl);
+      const response = await getAllPokemon(URL);
       setNextUrl(response.next);
       setPrevUrl(response.previous);
       await loadingPokemon(response.results);
@@ -27,7 +26,7 @@ const Home = () => {
   const loadingPokemon = async (data) => {
     const pokemon = await Promise.all(
       data.map(async (poke) => {
-        const pokemonRecord = await getAllPokemon(poke.url);
+        const pokemonRecord = await getPokemon(poke.url);
         return pokemonRecord;
       }),
     );
@@ -71,14 +70,14 @@ const Home = () => {
           ))}
         </ul>
       )}
-      <div>
+      <footer>
         <button type="button" onClick={previousPage}>
           Página anterior
         </button>
         <button type="button" onClick={nextPage}>
           Próxima página
         </button>
-      </div>
+      </footer>
     </Container>
   );
 };

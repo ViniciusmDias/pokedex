@@ -56,8 +56,15 @@ export const Container = styled.section`
       text-decoration: none;
     }
   }
-  button {
-    width: 300px;
-    align-self: center;
+  footer {
+    display: flex;
+    flex-direction: column;
+    margin: 2vh 0;
+
+    button {
+      width: 300px;
+      align-self: center;
+      color: rgba(0, 0, 0, 0.65);
+    }
   }
 `;

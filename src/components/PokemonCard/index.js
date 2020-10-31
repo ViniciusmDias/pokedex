@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Item } from './styles';
 
 const PokemonCard = ({ pokemonCard = [] }) => {
-  console.log(pokemonCard);
-
   if (!pokemonCard || pokemonCard.length === 0) {
     return <p>No pokemon today, sorry</p>;
   }

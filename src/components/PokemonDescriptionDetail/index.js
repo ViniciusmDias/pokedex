@@ -33,10 +33,11 @@ const PokemonDescriptionDetail = ({ pokemonDetail = {} }) => {
   const convertDecimeterToMeter = (value) => value / 10;
   const convertHectogramToKg = (value) => value / 10;
 
-  console.log(pokemonTypes.name);
-
   return (
-    <Pokemon className="pokemon">
+    <Pokemon
+      className="pokemon"
+      style={{ backgroundColor: pokemonTypeColor[pokemonTypes[0].name] }}
+    >
       <PokemonHeader>
         <h2>#{pokemonDetail.id}</h2>
         <h1>{pokemonDetail.name}</h1>

@@ -1,3 +1,5 @@
+export const URL = 'https://pokeapi.co/api/v2/pokemon';
+
 export async function getAllPokemon(url) {
   return new Promise((resolve, reject) => {
     fetch(url)
