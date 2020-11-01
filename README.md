@@ -4,7 +4,7 @@
 
 ### 📦 Instalação
 
-Para rodar o projeto, comece clonado o repositório na sua máquina.
+Para rodar o projeto, comece clonando o repositório na sua máquina.
 
 ```
 git clone https://github.com/ViniciusmDias/pokedex-elysios.git
@@ -16,7 +16,7 @@ Instale todas as dependências
 yarn install
 ```
 
-Agora você pode executar a aplicação:
+Execute a aplicação:
 
 ```
 yarn start
