@@ -19,7 +19,7 @@ export const Pokemon = styled.div`
     margin-top: 0;
     margin-bottom: 14px;
     margin-right: 10px;
-    color: rgba(0, 0, 0, 0.65);
+    color: var(--e-global-color-text);
     font-weight: 800;
     letter-spacing: 1px;
     border-radius: 8px;
@@ -29,7 +29,7 @@ export const Pokemon = styled.div`
     text-decoration: none;
 
     &:hover {
-      color: rgb(180, 180, 180);
+      color: var(--e-global-color-secondary);
     }
     svg {
       margin-right: 5px;
@@ -45,7 +45,6 @@ export const PokemonHeader = styled.header`
   h1 {
     color: #ffffff;
     font-size: 35px;
-    font-weight: 800;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
     text-transform: capitalize;
   }
@@ -119,8 +118,6 @@ export const PokemonStats = styled.div`
   }
 
   h3 {
-    font-size: 40px;
-    font-weight: 800;
     margin-bottom: 30px;
     text-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   }
@@ -155,7 +152,7 @@ export const PokemonStats = styled.div`
         margin-top: 0;
         margin-bottom: 14px;
         margin-right: 10px;
-        color: rgba(0, 0, 0, 0.65);
+        color: var(--e-global-color-text);
         font-weight: 800;
         letter-spacing: 1px;
         border-radius: 8px;
