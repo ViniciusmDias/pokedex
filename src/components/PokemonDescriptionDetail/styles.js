@@ -4,7 +4,6 @@ export const Pokemon = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 8vh 3vw;
 
   .link-back {
     display: flex;
@@ -20,7 +19,7 @@ export const Pokemon = styled.div`
     margin-top: 0;
     margin-bottom: 14px;
     margin-right: 10px;
-    color: rgba(0, 0, 0, 0.65);
+    color: var(--e-global-color-text);
     font-weight: 800;
     letter-spacing: 1px;
     border-radius: 8px;
@@ -30,7 +29,7 @@ export const Pokemon = styled.div`
     text-decoration: none;
 
     &:hover {
-      color: rgb(180, 180, 180);
+      color: var(--e-global-color-secondary);
     }
     svg {
       margin-right: 5px;
@@ -41,12 +40,11 @@ export const Pokemon = styled.div`
 export const PokemonHeader = styled.header`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2vh;
+  margin: 4vh 8vw 4vh;
 
   h1 {
     color: #ffffff;
     font-size: 35px;
-    font-weight: 800;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
     text-transform: capitalize;
   }
@@ -55,13 +53,17 @@ export const PokemonHeader = styled.header`
     font-weight: 800;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   }
+
+  @media (min-width: 800px) {
+    margin: 8vh 3vw 4vh;
+  }
 `;
 
 export const PokemonDescription = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 0 4vw;
+  margin: 0 8vw;
   align-items: center;
 
   @media (min-width: 800px) {
@@ -85,7 +87,7 @@ export const PokemonImage = styled.div`
   width: 60%;
   display: flex;
   justify-content: center;
-  margin-bottom: 2vh;
+  margin-bottom: 4vh;
 
   img {
     width: 100%;
@@ -116,8 +118,6 @@ export const PokemonStats = styled.div`
   }
 
   h3 {
-    font-size: 40px;
-    font-weight: 800;
     margin-bottom: 30px;
     text-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   }
@@ -152,7 +152,7 @@ export const PokemonStats = styled.div`
         margin-top: 0;
         margin-bottom: 14px;
         margin-right: 10px;
-        color: rgba(0, 0, 0, 0.65);
+        color: var(--e-global-color-text);
         font-weight: 800;
         letter-spacing: 1px;
         border-radius: 8px;

@@ -24,6 +24,8 @@
     "no-console": "off",
     "object-curly-newline": "off",
     "radix": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "no-use-before-define": "off",
+    "function-paren-newline": "off"
   }
 }

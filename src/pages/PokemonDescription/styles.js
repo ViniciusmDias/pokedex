@@ -5,5 +5,4 @@ export const Container = styled.main`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #92d1b4;
 `;
