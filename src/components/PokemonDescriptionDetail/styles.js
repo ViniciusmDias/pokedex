@@ -19,7 +19,7 @@ export const Pokemon = styled.div`
     margin-top: 0;
     margin-bottom: 14px;
     margin-right: 10px;
-    color: rgba(0, 0, 0, 0.65);
+    color: var(--e-global-color-text);
     font-weight: 800;
     letter-spacing: 1px;
     border-radius: 8px;
@@ -29,7 +29,7 @@ export const Pokemon = styled.div`
     text-decoration: none;
 
     &:hover {
-      color: rgb(180, 180, 180);
+      color: var(--e-global-color-secondary);
     }
     svg {
       margin-right: 5px;
@@ -155,7 +155,7 @@ export const PokemonStats = styled.div`
         margin-top: 0;
         margin-bottom: 14px;
         margin-right: 10px;
-        color: rgba(0, 0, 0, 0.65);
+        color: var(--e-global-color-text);
         font-weight: 800;
         letter-spacing: 1px;
         border-radius: 8px;

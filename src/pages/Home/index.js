@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
@@ -11,6 +12,8 @@ const Home = () => {
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setPrevUrl] = useState('');
   const [loading, setLoading] = useState(true);
+  const [pokemonFiltered, setPokemonFiltered] = useState([]);
+  const [searchFound, setSearchFound] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -52,22 +55,95 @@ const Home = () => {
     setLoading(false);
   };
 
+  const searchPokemon = (value) => {
+    setLoading(true);
+
+    const pokemonFound = pokemonsData.filter((item) =>
+      item.name.toLowerCase().includes(value),
+    );
+
+    if (pokemonFound) {
+      setPokemonFiltered(pokemonFound);
+      setSearchFound(true);
+    } else {
+      setSearchFound(false);
+    }
+
+    setLoading(false);
+  };
+
+  /*
+  (this function will be implemented)
+  const searchByType = () => {
+    setLoading(true);
+
+    const pokemonTypeFound = pokemonsData.filter((item) =>
+      item.types.map((type) =>
+        type.type.name.toLowerCase().includes(typeFilter),
+      ),
+    );
+
+    if (pokemonTypeFound) {
+      setPokemonFiltered(pokemonTypeFound);
+      setSearchFound(true);
+    } else {
+      setSearchFound(false);
+    }
+
+    setLoading(false);
+  }; */
+
   return (
     <Container>
       <h1>Pokedex Elysios</h1>
       <header>
-        <input type="text" placeholder="Search" />
-        <button type="button">Tipo</button>
+        <input
+          type="text"
+          placeholder="Procurar um pokemon por nome"
+          onChange={(e) => {
+            searchPokemon(e.target.value);
+          }}
+        />
+        <select>
+          <option value="">
+            Procurar um pokemon por tipo (será implementado)
+          </option>
+          <option value="bug">Bug</option>
+          <option value="dragon">dragon</option>
+          <option value="fairy">fairy</option>
+          <option value="fire">fire</option>
+          <option value="ghost">ghost</option>
+          <option value="ground">ground</option>
+          <option value="normal">normal</option>
+          <option value="pyschic">pyschic</option>
+          <option value="steel">steel</option>
+          <option value="dark">dark</option>
+          <option value="electric">electric</option>
+          <option value="fighting">fighting</option>
+          <option value="electric">electric</option>
+          <option value="flying">flying</option>
+          <option value="grass">grass</option>
+          <option value="ice">ice</option>
+          <option value="poison">poison</option>
+          <option value="rock">rock</option>
+          <option value="water">water</option>
+        </select>
       </header>
       {loading ? (
         <Loading />
       ) : (
         <ul>
-          {pokemonsData.map((pokemon) => (
-            <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
-              <PokemonCard pokemonCard={pokemon} />
-            </Link>
-          ))}
+          {searchFound
+            ? pokemonFiltered.map((pokemon) => (
+                <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
+                  <PokemonCard pokemonCard={pokemon} />
+                </Link>
+              ))
+            : pokemonsData.map((pokemon) => (
+                <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
+                  <PokemonCard pokemonCard={pokemon} />
+                </Link>
+              ))}
         </ul>
       )}
       <footer>

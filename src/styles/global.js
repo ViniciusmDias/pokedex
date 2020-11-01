@@ -29,12 +29,17 @@ export default createGlobalStyle`
     line-height: 1.2;
   }
   #root {
-    --secondary: #fcce00;
-    --primary: #245eaa;
-    --transparency: #000000bf;
-    --black: #000;
-    --white: #fff;
-    --gray: #333333;
+    --e-global-color-primary: #459D49;
+    --e-global-color-secondary: #54595F;
+    --e-global-color-text: #7A7A7A;
+    --e-global-color-accent: #61CE70;
+    --e-global-color-58fda727: #4054B2;
+    --e-global-color-37782459: #23A455;
+    --e-global-color-1d2624b6: #000;
+    --e-global-color-3e4ac817: #FFF;
+    --e-global-color-30078b89: #000000;
+    --e-global-color-6a215bf4: #73F384;
+    --e-global-color-eff87ba: #1A202C;
   }
   button {
     cursor: pointer;

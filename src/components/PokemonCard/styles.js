@@ -7,6 +7,6 @@ export const Item = styled.li`
   justify-content: space-between;
 
   h3 {
-    color: rgba(0, 0, 0, 0.65);
+    color: var(--e-global-color-text);
   }
 `;
