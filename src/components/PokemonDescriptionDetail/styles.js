@@ -45,7 +45,6 @@ export const PokemonHeader = styled.header`
   h1 {
     color: #ffffff;
     font-size: 35px;
-    font-weight: 800;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
     text-transform: capitalize;
   }
@@ -119,8 +118,6 @@ export const PokemonStats = styled.div`
   }
 
   h3 {
-    font-size: 40px;
-    font-weight: 800;
     margin-bottom: 30px;
     text-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   }

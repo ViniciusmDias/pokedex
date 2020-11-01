@@ -6,18 +6,16 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
   background-color: white;
 
   h1 {
     font-size: 50px;
     font-weight: 800;
+    color: var(--e-global-color-primary);
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
     text-transform: capitalize;
     text-align: center;
     margin: 2vh 0;
-
-    color: var(--e-global-color-primary);
   }
 
   header {
