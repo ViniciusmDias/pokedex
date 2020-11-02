@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import Loading from '../../components/Loading';
 
 import PokemonDescriptionDetail from '../../components/PokemonDescriptionDetail';
@@ -29,7 +31,18 @@ const PokemonDescription = ({ match = '01' }) => {
       {loading ? (
         <Loading />
       ) : (
-        <PokemonDescriptionDetail pokemonDetail={pokemonDetailData} />
+        <>
+          <Link
+            className="previous-poke"
+            to={`/pokemon/${index === 1 ? index : index - 1}`}
+          >
+            <AiOutlineArrowLeft />
+          </Link>
+          <PokemonDescriptionDetail pokemonDetail={pokemonDetailData} />
+          <Link className="next-poke" to={`/pokemon/${index + 1}`}>
+            <AiOutlineArrowRight />
+          </Link>
+        </>
       )}
     </Container>
   );
