@@ -73,16 +73,17 @@ const Home = () => {
 
     setLoading(false);
   };
-  // (this function will be implemented)
-  const searchByType = (value) => {
-    console.log(value);
+
+  /*
+  (this function will be implemented)
+  const searchByType = () => {
     setLoading(true);
 
     const pokemonTypeFound = pokemonsData.filter((item) =>
-      item.types[0].type.name.toLowerCase().includes(value),
+      item.types.map((type) =>
+        type.type.name.toLowerCase().includes(typeFilter),
+      ),
     );
-
-    console.log(pokemonTypeFound);
 
     if (pokemonTypeFound) {
       setPokemonFiltered(pokemonTypeFound);
@@ -92,7 +93,7 @@ const Home = () => {
     }
 
     setLoading(false);
-  };
+  }; */
 
   return (
     <Container>
@@ -105,31 +106,29 @@ const Home = () => {
             searchPokemon(e.target.value);
           }}
         />
-        <select
-          onChange={(e) => {
-            searchByType(e.target.value);
-          }}
-        >
-          <option value="">Procurar um pokemon por tipo</option>
+        <select>
+          <option value="">
+            Procurar um pokemon por tipo (será implementado)
+          </option>
           <option value="bug">Bug</option>
-          <option value="dragon">dragon</option>
-          <option value="fairy">fairy</option>
-          <option value="fire">fire</option>
-          <option value="ghost">ghost</option>
-          <option value="ground">ground</option>
-          <option value="normal">normal</option>
-          <option value="pyschic">pyschic</option>
-          <option value="steel">steel</option>
-          <option value="dark">dark</option>
-          <option value="electric">electric</option>
-          <option value="fighting">fighting</option>
-          <option value="electric">electric</option>
-          <option value="flying">flying</option>
-          <option value="grass">grass</option>
-          <option value="ice">ice</option>
-          <option value="poison">poison</option>
-          <option value="rock">rock</option>
-          <option value="water">water</option>
+          <option value="dragon">Dragon</option>
+          <option value="fairy">Fairy</option>
+          <option value="fire">Fire</option>
+          <option value="ghost">Ghost</option>
+          <option value="ground">Ground</option>
+          <option value="normal">Normal</option>
+          <option value="pyschic">Pyschic</option>
+          <option value="steel">Steel</option>
+          <option value="dark">Dark</option>
+          <option value="electric">Electric</option>
+          <option value="fighting">Fighting</option>
+          <option value="electric">Electric</option>
+          <option value="flying">Flying</option>
+          <option value="grass">Grass</option>
+          <option value="ice">Ice</option>
+          <option value="poison">Poison</option>
+          <option value="rock">Rock</option>
+          <option value="water">Water</option>
         </select>
       </header>
       {loading ? (
@@ -156,10 +155,6 @@ const Home = () => {
         <button type="button" onClick={nextPage}>
           Próxima página
         </button>
-        <p>
-          © 2020 Desafio Frontend Elysios | Por:
-          <a href="https://viniciusdias.works"> Vinicius Dias</a>
-        </p>
       </footer>
     </Container>
   );
