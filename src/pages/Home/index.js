@@ -73,17 +73,16 @@ const Home = () => {
 
     setLoading(false);
   };
-
-  /*
-  (this function will be implemented)
-  const searchByType = () => {
+  // (this function will be implemented)
+  const searchByType = (value) => {
+    console.log(value);
     setLoading(true);
 
     const pokemonTypeFound = pokemonsData.filter((item) =>
-      item.types.map((type) =>
-        type.type.name.toLowerCase().includes(typeFilter),
-      ),
+      item.types[0].type.name.toLowerCase().includes(value),
     );
+
+    console.log(pokemonTypeFound);
 
     if (pokemonTypeFound) {
       setPokemonFiltered(pokemonTypeFound);
@@ -93,7 +92,7 @@ const Home = () => {
     }
 
     setLoading(false);
-  }; */
+  };
 
   return (
     <Container>
@@ -106,10 +105,12 @@ const Home = () => {
             searchPokemon(e.target.value);
           }}
         />
-        <select>
-          <option value="">
-            Procurar um pokemon por tipo (será implementado)
-          </option>
+        <select
+          onChange={(e) => {
+            searchByType(e.target.value);
+          }}
+        >
+          <option value="">Procurar um pokemon por tipo</option>
           <option value="bug">Bug</option>
           <option value="dragon">dragon</option>
           <option value="fairy">fairy</option>
@@ -155,6 +156,10 @@ const Home = () => {
         <button type="button" onClick={nextPage}>
           Próxima página
         </button>
+        <p>
+          © 2020 Desafio Frontend Elysios | Por:
+          <a href="https://viniciusdias.works"> Vinicius Dias</a>
+        </p>
       </footer>
     </Container>
   );
