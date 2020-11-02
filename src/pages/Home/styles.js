@@ -43,10 +43,10 @@ export const Container = styled.section`
       align-self: center;
       width: 300px;
       background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
-      padding-top: 1vh;
-      padding-bottom: 1vh;
-      padding-left: 1vw;
-      padding-right: 1vw;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      padding-left: 13px;
+      padding-right: 13px;
       margin-top: 0;
       margin-bottom: 0.2vh;
       color: var(--e-global-color-text);
@@ -65,12 +65,12 @@ export const Container = styled.section`
       align-items: center;
       align-self: center;
       width: 300px;
-      padding-top: 1vh;
-      padding-bottom: 1vh;
-      padding-left: 1vw;
-      padding-right: 1vw;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      padding-left: 13px;
+      padding-right: 13px;
       margin-top: 0;
-      color: var(--e-global-color-text);
+      color: #fff;
       font-weight: 800;
       letter-spacing: 0.1em;
       border-radius: 1vh;
@@ -78,6 +78,7 @@ export const Container = styled.section`
       text-transform: uppercase;
       box-shadow: 0 20px 25px -10px rgba(0, 0, 0, 0.15);
       text-decoration: none;
+      background-color: var(--e-global-color-text);
     }
   }
 
