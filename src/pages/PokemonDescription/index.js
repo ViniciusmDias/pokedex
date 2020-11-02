@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../../components/Loading';
 
 import PokemonDescriptionDetail from '../../components/PokemonDescriptionDetail';
 import { getPokemon, URL } from '../../services/api';
 
 import { Container } from './styles';
-
-import pokemonTypeColor from '../../helpers/pokemonTypes';
 
 const PokemonDescription = ({ match = '01' }) => {
   const index = parseInt(match.params.id);
@@ -14,17 +13,24 @@ const PokemonDescription = ({ match = '01' }) => {
   const [pokemonDetailData, setPokemonDetailData] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
+
     async function loadPoke() {
       const response = await getPokemon(`${URL}/${index}`);
       setPokemonDetailData(response);
       setLoading(false);
     }
     loadPoke();
+    setLoading(false);
   }, [index]);
 
   return (
     <Container>
-      <PokemonDescriptionDetail pokemonDetail={pokemonDetailData} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <PokemonDescriptionDetail pokemonDetail={pokemonDetailData} />
+      )}
     </Container>
   );
 };

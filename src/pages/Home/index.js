@@ -16,6 +16,8 @@ const Home = () => {
   const [searchFound, setSearchFound] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     async function loadData() {
       const response = await getAllPokemon(URL);
       setNextUrl(response.next);

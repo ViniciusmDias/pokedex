@@ -49,7 +49,7 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  @media (min-width: 765px) {
+  @media (min-width: 800px) {
     html {
       font-size: 16px;
     }

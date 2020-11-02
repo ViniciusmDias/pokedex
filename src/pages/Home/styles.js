@@ -3,13 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
   background-color: white;
 
   h1 {
-    font-size: 50px;
+    font-size: 3rem;
     font-weight: 800;
     color: var(--e-global-color-primary);
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
@@ -45,7 +45,7 @@ export const Container = styled.section`
     a {
       width: 100%;
       display: flex;
-      background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
+      background-color: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
       padding-top: 6px;
       padding-bottom: 6px;
       padding-left: 13px;
@@ -59,10 +59,20 @@ export const Container = styled.section`
       -ms-letter-spacing: 1px;
       letter-spacing: 1px;
       border-radius: 8px;
-      font-size: 12px;
+      font-size: 0.7rem;
       text-transform: uppercase;
       box-shadow: 0 20px 25px -10px rgba(0, 0, 0, 0.15);
       text-decoration: none;
+
+      &:hover {
+        background: linear-gradient(
+          to bottom,
+          #ffffff 0%,
+          var(--e-global-color-primary) 100%
+        );
+
+        color: var(--e-global-color-secondary);
+      }
     }
   }
   footer {
@@ -73,7 +83,6 @@ export const Container = styled.section`
       width: 300px;
       align-self: center;
       color: var(--e-global-color-text);
-      max-width: 225px;
       background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
       padding-top: 6px;
       padding-bottom: 6px;
@@ -86,10 +95,16 @@ export const Container = styled.section`
       font-weight: 800;
       letter-spacing: 1px;
       border-radius: 8px;
-      font-size: 12px;
+      font-size: 0.7rem;
       text-transform: uppercase;
       box-shadow: 0 20px 25px -10px rgba(0, 0, 0, 0.15);
       text-decoration: none;
+      transition: opacity 0.6s ease-in;
+
+      &:hover {
+        opacity: 0.8;
+        color: var(--e-global-color-secondary);
+      }
     }
   }
 `;
