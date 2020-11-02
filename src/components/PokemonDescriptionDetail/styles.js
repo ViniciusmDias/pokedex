@@ -4,6 +4,7 @@ export const Pokemon = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   .link-back {
     display: flex;
@@ -112,15 +113,16 @@ export const PokemonInfo = styled.section`
     align-self: center;
 
     article {
-      padding-left: 4vw;
+      flex-direction: column;
+      padding-left: 2vw;
     }
   }
 
   article {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: relative;
-    padding-left: 2vw;
+    padding-left: 4vw;
 
     &::before {
       content: '';
@@ -195,6 +197,7 @@ export const PokemonStats = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin-right: 2vw;
 
         img {
           width: 64px;
