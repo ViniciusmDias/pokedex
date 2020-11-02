@@ -1,34 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../../components/Loading';
 
-import PokemonDetail from '../../components/PokemonDetail';
-import WithPokemonLoading from '../../components/WithPokemonLoading';
+import PokemonDescriptionDetail from '../../components/PokemonDescriptionDetail';
+import { getPokemon, URL } from '../../services/api';
 
 import { Container } from './styles';
-
-const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
 
 const PokemonDescription = ({ match = '01' }) => {
   const index = parseInt(match.params.id);
 
-  const PokemonsLoading = WithPokemonLoading(PokemonDetail);
-
-  const [appState, setAppState] = useState({
-    loading: false,
-    poke: null,
-  });
+  const [loading, setLoading] = useState(true);
+  const [pokemonDetailData, setPokemonDetailData] = useState([]);
 
   useEffect(() => {
-    setAppState({ loading: true });
-    fetch(`${apiUrl}/${index}`)
-      .then((res) => res.json())
-      .then((poke) => {
-        setAppState({ loading: false, poke });
-      });
-  }, [setAppState, index]);
+    setLoading(true);
+
+    async function loadPoke() {
+      const response = await getPokemon(`${URL}/${index}`);
+      setPokemonDetailData(response);
+      setLoading(false);
+    }
+    loadPoke();
+    setLoading(false);
+  }, [index]);
 
   return (
     <Container>
-      <PokemonsLoading isLoading={appState.loading} pokemon={appState.poke} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <PokemonDescriptionDetail pokemonDetail={pokemonDetailData} />
+      )}
     </Container>
   );
 };
