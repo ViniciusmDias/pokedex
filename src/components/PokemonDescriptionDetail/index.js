@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
-import pokemonTypeColor from '../../helpers/pokemonTypes';
+import {
+  pokemonTypeColor,
+  pokemonStatsTranslate,
+  pokemonTypeTranslate,
+} from '../../helpers/pokemonHelpers';
 
 import {
   Pokemon,
@@ -12,15 +16,26 @@ import {
   PokemonStats,
 } from './styles';
 
-const PokemonDescriptionDetail = ({ pokemonDetail = {} }) => {
+const PokemonDescriptionDetail = ({
+  pokemonDetail = {
+    id: 111,
+    name: '',
+    length: undefined,
+    stats: [],
+    types: [],
+    height: 0,
+    weigth: 0,
+    sprites: [],
+  },
+}) => {
   if (!pokemonDetail || pokemonDetail.length === 0) {
     return <p>No pokemon today, sorry</p>;
   }
-
+  console.log(pokemonDetail);
   const pokemonStats = pokemonDetail.stats.map((stat) => {
     return {
       value: stat.base_stat,
-      name: stat.stat.name,
+      name: pokemonStatsTranslate[stat.stat.name],
     };
   });
 
@@ -44,8 +59,11 @@ const PokemonDescriptionDetail = ({ pokemonDetail = {} }) => {
       </PokemonHeader>
       <PokemonDescription>
         <PokemonInfo>
-          <span>Altura: {convertDecimeterToMeter(pokemonDetail.height)}m</span>
-          <span>Peso: {convertHectogramToKg(pokemonDetail.weight)}kg</span>
+          <h3>Detalhes:</h3>
+          <article>
+            <p>Altura: {convertDecimeterToMeter(pokemonDetail.height)}m</p>
+            <p>Peso: {convertHectogramToKg(pokemonDetail.weight)}kg</p>
+          </article>
         </PokemonInfo>
         <PokemonImage>
           <img
@@ -54,25 +72,32 @@ const PokemonDescriptionDetail = ({ pokemonDetail = {} }) => {
           />
         </PokemonImage>
         <PokemonStats>
-          <header>
-            {pokemonTypes.map((pokemonType) => (
-              <img
-                key={pokemonType.name}
-                src={`${process.env.PUBLIC_URL}/assets/types/${pokemonType.name}.png`}
-                alt="type"
-              />
-            ))}
-          </header>
-          <h3>Estatísticas de base:</h3>
-          <ul>
-            {pokemonStats.map((pokemonStat) => (
-              <li key={pokemonStat.name}>
-                <p>
-                  {pokemonStat.name}: {pokemonStat.value}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <section>
+            <h3>Tipos:</h3>
+            <div>
+              {pokemonTypes.map((pokemonType) => (
+                <article key={pokemonType.name}>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/assets/types/${pokemonType.name}.png`}
+                    alt="type"
+                  />
+                  <p>{pokemonTypeTranslate[pokemonType.name]}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section>
+            <h3>Estatísticas de base:</h3>
+            <ul>
+              {pokemonStats.map((pokemonStat) => (
+                <li key={pokemonStat.name}>
+                  <p>
+                    {pokemonStat.name}: {pokemonStat.value}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
         </PokemonStats>
       </PokemonDescription>
 
