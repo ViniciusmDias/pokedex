@@ -108,25 +108,24 @@ const Home = () => {
           }}
         >
           <option value="">Procurar pokemon(s) por tipo</option>
-          <option value="bug">Bug</option>
-          <option value="dragon">Dragon</option>
-          <option value="fairy">Fairy</option>
-          <option value="fire">Fire</option>
-          <option value="ghost">Ghost</option>
-          <option value="ground">Ground</option>
+          <option value="bug">Inseto</option>
+          <option value="dragon">Dragão</option>
+          <option value="fairy">Fada</option>
+          <option value="fire">Fogo</option>
+          <option value="ghost">Fantasma</option>
+          <option value="ground">Terra</option>
           <option value="normal">Normal</option>
-          <option value="pyschic">Pyschic</option>
-          <option value="steel">Steel</option>
-          <option value="dark">Dark</option>
-          <option value="electric">Electric</option>
-          <option value="fighting">Fighting</option>
-          <option value="electric">Electric</option>
-          <option value="flying">Flying</option>
-          <option value="grass">Grass</option>
-          <option value="ice">Ice</option>
-          <option value="poison">Poison</option>
-          <option value="rock">Rock</option>
-          <option value="water">Water</option>
+          <option value="pyschic">Psíquico</option>
+          <option value="steel">Metal</option>
+          <option value="dark">Noturno</option>
+          <option value="electric">Elétrico</option>
+          <option value="fighting">Lutador</option>
+          <option value="flying">Voador</option>
+          <option value="grass">Grama</option>
+          <option value="ice">Gelo</option>
+          <option value="poison">Venenoso</option>
+          <option value="rock">Pedra</option>
+          <option value="water">Água</option>
         </select>
       </header>
       {loading ? (
