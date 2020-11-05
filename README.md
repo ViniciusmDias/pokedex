@@ -1,5 +1,5 @@
 <h1 align="center">
- :computer: Desafio Elysios :computer:
+ Pokedex
 </h1>
 
 ### 📦 Instalação
