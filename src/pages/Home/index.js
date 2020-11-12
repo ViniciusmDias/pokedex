@@ -93,7 +93,7 @@ const Home = () => {
 
   return (
     <Container>
-      <h1>Pokedex Elysios</h1>
+      <h1>Pokedex</h1>
       <header>
         <input
           type="text"
